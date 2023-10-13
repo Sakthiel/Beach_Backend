@@ -1,0 +1,24 @@
+fileignoreconfig:
+- filename: src/main/resources/db/migration/V1.1__CreateMovieTable.sql
+  checksum: ebaaf3d6426e09bdbd0613319e8b00ad8dc41dc00443c053f7bca618297097ca
+- filename: src/main/resources/db/migration/V1.2__DropMovieTable.sql
+  checksum: 963358d34e25c5c6d7bfe81347c5c7bee65d7d3f23144361d2be542147840c87
+- filename: src/main/resources/db/migration/V1.3__CreateMovieTable.sql
+  checksum: 369a62d6dfc2802162b7ca0ef32076589af6afedbd863b8ebe09f608929e6da1
+- filename: src/main/resources/db/migration/V1.4__CreateSlotTable.sql
+  checksum: 1f27d55c9d1d4fe08608e60ab563d6c31197977569eb4222e78c488c1147951d
+- filename: src/main/resources/db/migration/V1.5__CreateScreenTable.sql
+  checksum: 96be33c683ffaca4a9166827db85399fc8829f70c27eebbdd013110f73190987
+- filename: src/main/resources/db/migration/V1.6__CreateShowTable.sql
+  checksum: 638b8d556723a9d2d876d2f98277b62bca4485c913f327c3423fa528d30f4513
+- filename: src/main/resources/db/migration/V1.7__CreateUserTable.sql
+  checksum: a3949fd125cd4b63041e041975a3f804c3ec3f296a51888fa46a10a950ab1380
+- filename: src/test/java/com/thoughtworks/pulpticket/movie/MovieServiceTest.java
+  checksum: 5e670e5cf9643425ecd45b0e8a075ed59d0c9ec9586501770d9ba320b4ce29d5
+- filename: src/test/java/com/thoughtworks/pulpticket/movie/controller/MovieControllerIntegrationTest.java
+  checksum: 7bddca81e99e5dad326da17845c498260c6e5b9d1048d528733d77be59c26f71
+- filename: seedMovieData.sh
+  checksum: dbd367a8b543428b84c048285467a4fbc8be7c4a5e885a023725c48dea816f80
+- filename: src/main/java/com/thoughtworks/pulpticket/users/repository/User.java
+  checksum: 00646ec0548137bf4359aff27128ae55146179d6969393a243e7760eb80bf276
+version: ""

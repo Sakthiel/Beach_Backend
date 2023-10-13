@@ -2,8 +2,11 @@ package com.thoughtworks.pulpticket.show.repository;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.thoughtworks.pulpticket.movie.repository.Movie;
 import com.thoughtworks.pulpticket.screen.repository.Screen;
 import com.thoughtworks.pulpticket.slot.repository.Slot;
+import com.thoughtworks.pulpticket.utilities.serializers.date.DateSerializer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
@@ -20,6 +23,7 @@ public class Show {
     private Long id;
 
     @Column(nullable = false)
+    @JsonSerialize(using = DateSerializer.class)
     @JsonProperty
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;
@@ -36,20 +40,19 @@ public class Show {
     @DecimalMin(value = "0.0", inclusive = false, message = "Cost should be greater than {value}")
     @Digits(integer = 4, fraction = 2, message = "Cost can have at most {integer} integral digits, and {fraction} fractional digits")
     private BigDecimal cost;
-
-    @Column(nullable = false , name = "movie_id")
-    @NotBlank(message = "Movie id has to be provided")
-    private String movieId;
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
 
     public Show() {
     }
 
-    public Show(Date date, Slot slot, Screen screen, BigDecimal cost, String movieId) {
+    public Show(Date date, Slot slot, Screen screen, BigDecimal cost, Movie movie) {
         this.date = date;
         this.slot = slot;
         this.screen = screen;
         this.cost = cost;
-        this.movieId = movieId;
+        this.movie = movie;
     }
 
     public Long getId() {
@@ -92,11 +95,11 @@ public class Show {
         this.cost = cost;
     }
 
-    public String getMovieId() {
-        return movieId;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public void setMovieId(String movieId) {
-        this.movieId = movieId;
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }

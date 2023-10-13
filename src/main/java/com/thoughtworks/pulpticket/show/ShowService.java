@@ -5,6 +5,7 @@ import com.thoughtworks.pulpticket.show.repository.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,5 +19,10 @@ public class ShowService {
 
     public List<Show> fetchAll(){
         return showRepository.findAll();
+    }
+
+    public List<Show> fetchShowsByDateAndMovie(String movieId , Date date){
+
+        return showRepository.findShowsByDateAndMovie(movieId , date);
     }
 }
