@@ -25,7 +25,7 @@ public class UserPrincipalServiceTest {
 
     @Test
     public void should_load_user_by_username() {
-        User user = new User("Sakthi" , "Sakthi");
+        User user = new User("Sakthi" , "Sakthi","ROLE_ADMIN");
 
 
         when(userRepository.findByUsername("Sakthi")).thenReturn(Optional.of(user));
@@ -44,4 +44,23 @@ public class UserPrincipalServiceTest {
             userPrincipalService.loadUserByUsername("invalidUser");
         });
     }
+
+    @Test
+    public void should_return_true_if_username_is_available() {
+        when(userRepository.existsByUsernameIgnoreCase("availableUsername")).thenReturn(false);
+
+        boolean isAvailable = userPrincipalService.isUsernameAvailable("availableUsername");
+
+        assertTrue(isAvailable);
+    }
+
+    @Test
+    public void should_return_false_if_username_is_not_available() {
+        when(userRepository.existsByUsernameIgnoreCase("takenUsername")).thenReturn(true);
+
+        boolean isAvailable = userPrincipalService.isUsernameAvailable("takenUsername");
+
+        assertFalse(isAvailable);
+    }
+
 }

@@ -70,6 +70,24 @@ seed_data_for_first_day () {
 
 }
 
+seed_data_second_day_onwards () {
+  next_date=$( get_next_date "$start_date" )
+  for ((day = 2; day <= $1; day++));
+  do
+    for ((screen_id = ${screen_ids[0]} ; screen_id <= ${screen_ids[${#screen_ids[@]} - 1]} ; screen_id++));
+      do
+        for ((slot_id = ${slot_ids[0]}; slot_id <= ${slot_ids[ ${#slot_ids[@]} - 1 ]}; slot_id++));
+        do
+        movie_id=$( get_random_movie_id )
+        price=$( get_random_price_with_two_decimal_places )
+        PGPASSWORD=${DB_PASSWORD} psql -h ${DB_HOST} -U ${DB_USERNAME} -d ${DB_DATABASE} -p '5435' -qc \
+        "insert into show (movie_id, date, slot_id, screen_id ,cost) values ('$movie_id', '${next_date}', $slot_id, $screen_id , $price)"
+        done
+      done
+    next_date=$( get_next_date "$next_date" )
+  done
+}
+
 seed_movie_data () {
   echo "Seeding movie data in database..."
 
@@ -132,6 +150,7 @@ seed_show_data () {
   if [ $number_of_days -ne 0 ]
   then
     seed_data_for_first_day
+    seed_data_second_day_onwards "$number_of_days"
   fi
 
   echo "Show data successfully seeded!"

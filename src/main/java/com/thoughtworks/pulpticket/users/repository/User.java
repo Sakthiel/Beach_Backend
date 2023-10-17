@@ -11,18 +11,29 @@ public class User {
     private Long id ;
 
     @Column(name = "user_name" , nullable = false , unique = true)
-    @Pattern(regexp = ("[a-zA-Z$_][a-zA-Z0-9$_]*"), message = "Please enter valid username")
+    @Pattern(regexp = ("[a-zA-Z$_][a-zA-Z0-9$_@]*"), message = "Please enter valid username")
     private String username;
     @Column(nullable = false)
     @Pattern(regexp = ("^.*[a-zA-Z0-9]+.*$"), message = "Please enter valid password")
     private String password;
 
+    @Column(nullable = false)
+    private String role;
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Long getId() {

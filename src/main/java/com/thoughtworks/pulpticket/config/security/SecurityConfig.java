@@ -40,8 +40,8 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/**", "OPTIONS")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/movies", "GET")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/shows/***", "GET")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/customer" , "POST")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/username" , "GET")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.disable())

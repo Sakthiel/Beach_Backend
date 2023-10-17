@@ -61,7 +61,7 @@ public class ShowControllerIntegrationTest {
 
     @BeforeEach
     public void beforeEach(){
-        userRepository.save(new User("Sakthi" , "Sakthi"));
+        userRepository.save(new User("Sakthi" , "Sakthi","ROLE_ADMIN"));
 
         showDate = Date.valueOf("2023-12-03");
         showSlot = new Slot("slot1", Time.valueOf("09:00:00"), Time.valueOf("12:30:00"));
@@ -127,16 +127,16 @@ public class ShowControllerIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("[\n" +
                         "    {\n" +
-                        "        \"id\": 1,\n" +
+                        "        \"id\": 2,\n" +
                         "        \"date\": \"2023-12-03\",\n" +
                         "        \"slot\": {\n" +
-                        "            \"id\": 1,\n" +
+                        "            \"id\": 2,\n" +
                         "            \"name\": \"slot1\",\n" +
                         "            \"startTime\": \"9:00 am\",\n" +
                         "            \"endTime\": \"12:30 pm\"\n" +
                         "        },\n" +
                         "        \"screen\": {\n" +
-                        "            \"id\": 1,\n" +
+                        "            \"id\": 2,\n" +
                         "            \"name\": \"GoldPlex\"\n" +
                         "        },\n" +
                         "        \"cost\": 250.00,\n" +

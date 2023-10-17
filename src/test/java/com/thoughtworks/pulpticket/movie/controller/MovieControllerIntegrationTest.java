@@ -36,7 +36,7 @@ public class MovieControllerIntegrationTest {
     public void beforeEach(){
 
         movieRepository.deleteAll();
-        userRepository.save(new User("Sakthi" , "Sakthi"));
+        userRepository.save(new User("Sakthi" , "Sakthi" , "ROLE_ADMIN"));
     }
     @AfterEach
     public void afterEach(){

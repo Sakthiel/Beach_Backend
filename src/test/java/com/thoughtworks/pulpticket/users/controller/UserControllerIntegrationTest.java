@@ -12,10 +12,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.is;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest(classes = PulpticketApplication.class, properties =  "spring.config.name=application")
 @AutoConfigureMockMvc
@@ -35,7 +35,7 @@ public class UserControllerIntegrationTest {
 
     @Test
     public void shouldLoginSuccessfully() throws Exception {
-        userRepository.save(new User("testUser", "testUser" ));
+        userRepository.save(new User("testUser", "testUser","ROLE_ADMIN" ));
 
         mockMvc.perform(get("/login")
                         .with(httpBasic("testUser", "testUser")))
@@ -51,6 +51,14 @@ public class UserControllerIntegrationTest {
                 .andExpect(status().isUnauthorized());
     }
 
+    @Test
+    public void shouldReturnUsernameAvailabilityTrue() throws Exception {
+        mockMvc.perform(get("/username?username=testUser"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\n" +
+                        "    \"isUsernameAvailable\": true\n" +
+                        "}"));
+    }
 
 }
 

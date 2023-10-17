@@ -21,7 +21,7 @@ public class UserTest {
     @Test
     public void should_allow_user_to_be_created_with_valid_credentials() {
 
-        final User user = new User("testUser", "Owner");
+        final User user = new User("testUser", "Owner","ROLE_ADMIN");
 
         final Set<ConstraintViolation<User>> violations = validator.validate(user);
 
@@ -30,7 +30,7 @@ public class UserTest {
     @Test
     public void should_not_allow_user_name_to_be_blank() {
 
-        final User user = new User("", "testPassword@123");
+        final User user = new User("", "testPassword@123" ,"ROLE_ADMIN");
 
         final Set<ConstraintViolation<User>> violations = validator.validate(user);
 
@@ -39,7 +39,7 @@ public class UserTest {
     @Test
     public void should_not_allow_password_to_be_blank() {
 
-        final User user = new User("testUser", "");
+        final User user = new User("testUser", "","ROLE_ADMIN");
 
         final Set<ConstraintViolation<User>> violations = validator.validate(user);
 
@@ -49,7 +49,7 @@ public class UserTest {
     @Test
     public void should_not_allow_username_to_start_with_numbers() {
 
-        final User user = new User("123testUser", "testUser");
+        final User user = new User("123testUser", "testUser","ROLE_ADMIN");
 
         final Set<ConstraintViolation<User>> violations = validator.validate(user);
 

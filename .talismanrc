@@ -22,3 +22,16 @@ fileignoreconfig:
 - filename: src/main/java/com/thoughtworks/pulpticket/users/repository/User.java
   checksum: 00646ec0548137bf4359aff27128ae55146179d6969393a243e7760eb80bf276
 version: ""
+
+
+fileignoreconfig:
+- filename: src/test/java/com/thoughtworks/pulpticket/shows/ShowServiceTest.java
+  checksum: 6bcebe33dd0a27cbc7d615d12d96bfedc80beea232358948875d534121533e30
+- filename: src/test/java/com/thoughtworks/pulpticket/movie/MovieServiceTest.java
+  checksum: 5b9c1e7f9a15ca93deb706014680d70b9f17d856f38e0177b9a68e5e0c4244bf
+- filename: src/test/java/com/thoughtworks/pulpticket/movie/controller/MovieControllerIntegrationTest.java
+  checksum: a80fcf091d4602995290dc30f94a8913126af338eab5438b899c03b9e8821925
+- filename: src/test/java/com/thoughtworks/pulpticket/shows/controller/ShowControllerIntegrationTest.java
+  checksum: 890b4ebe7acfc6b11cd002c831cd456ab1d16dab2cb2f61b0463f67a01cb8212
+version: ""
+

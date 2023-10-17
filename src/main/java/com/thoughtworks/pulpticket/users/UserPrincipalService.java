@@ -27,4 +27,7 @@ public class UserPrincipalService implements UserDetailsService {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
+    public boolean isUsernameAvailable(String username) {
+        return !(userRepository.existsByUsernameIgnoreCase(username));
+    }
 }
