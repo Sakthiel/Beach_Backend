@@ -17,7 +17,7 @@ public class MovieController {
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
     }
-    @CrossOrigin
+
     @GetMapping("/movies")
     public ResponseEntity<List<Movie>> fetchAllMovies(){
         List<Movie> movieList = movieService.getAllMovies();
@@ -25,7 +25,7 @@ public class MovieController {
         return new ResponseEntity<>(movieList , HttpStatus.OK);
     }
 
-    @CrossOrigin
+
     @GetMapping("/movies/{movieId}")
     public ResponseEntity<Movie> fetchMovie(@PathVariable String movieId){
         Movie movie = movieService.getMovieById(movieId);

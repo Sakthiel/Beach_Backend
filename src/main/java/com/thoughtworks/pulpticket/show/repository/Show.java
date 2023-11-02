@@ -102,4 +102,8 @@ public class Show {
     public void setMovie(Movie movie) {
         this.movie = movie;
     }
+
+    public BigDecimal costFor(int noOfSeats) {
+        return cost.multiply(BigDecimal.valueOf(noOfSeats));
+    }
 }

@@ -21,7 +21,7 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserPrincipalService userPrincipalService;
-    @CrossOrigin
+
     @GetMapping("/login")
     Map<String, Object> login(Principal principal) {
         String username = principal.getName();
@@ -32,7 +32,7 @@ public class UserController {
         userDetails.put("username", user.getUsername());
         return userDetails;
     }
-    @CrossOrigin
+
     @GetMapping("/username")
     public ResponseEntity<UsernameAvailableResponse> isUsernameAvailable(@Valid @RequestParam(name = "username") String username) {
         boolean isUsernameAvailable = userPrincipalService.isUsernameAvailable(username);

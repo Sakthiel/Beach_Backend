@@ -22,12 +22,12 @@ public class ShowController {
     public ShowController(ShowService showService) {
         this.showService = showService;
     }
-    @CrossOrigin
+
     @GetMapping("/shows")
     public ResponseEntity<List<Show>>fetchAll(){
         return new ResponseEntity<>(showService.fetchAll() , HttpStatus.OK);
     }
-    @CrossOrigin
+
     @GetMapping("/shows/{movieId}/{date}")
     public ResponseEntity<List<Show>>fetchShows(@PathVariable String movieId , @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date){
         List<Show> showList = showService.fetchShowsByDateAndMovie(movieId , date);

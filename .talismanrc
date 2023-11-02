@@ -35,3 +35,27 @@ fileignoreconfig:
   checksum: 890b4ebe7acfc6b11cd002c831cd456ab1d16dab2cb2f61b0463f67a01cb8212
 version: ""
 
+
+fileignoreconfig:
+- filename: src/main/resources/db/migration/V1.8__AlterUserTable.sql
+  checksum: 61fd4605aa20a3a98cfe55c0d0aacbbbf16f3a15f0dc34dc8cb240297cfbe5fd
+- filename: src/main/resources/db/migration/V1.9__CreateCustomerTable.sql
+  checksum: 5d13e374dd846fd54b7550e2e4a3dc0c3ac18860e9691d83a131f36446e60c4b
+- filename: seedMovieData.sh
+  checksum: 5b848ec54ad464751b269e99d008db139b6ae3873d535999e60a50128eead2d4
+- filename: src/main/java/com/thoughtworks/pulpticket/customer/model/UserCredentials.java
+  checksum: 4ac91ff516f2621bec779800171cd9439e6a583cf6eef388794c40b06dc122f3
+- filename: src/main/java/com/thoughtworks/pulpticket/customer/CustomerService.java
+  checksum: 973b0bfd8b7647fc6224e2c1c6277579357ae06ba93f4f1869656af06932ab41
+- filename: src/main/java/com/thoughtworks/pulpticket/users/repository/User.java
+  checksum: a117328172b124db54e4443b664bceabb3c0701a9de622a565ef304bb35b5f04
+- filename: src/test/java/com/thoughtworks/pulpticket/customer/model/UserCredentialsTest.java
+  checksum: d5c96846075e575c49d0fa621ab1095a39f8ee7ea49be10a7e9b52d43e459fe6
+- filename: src/test/java/com/thoughtworks/pulpticket/users/repository/UserTest.java
+  checksum: 4b571e493fbe99e966318ff7c491b0a0da7403efc5f3f3d3dce8988ca54933e2
+- filename: src/test/java/com/thoughtworks/pulpticket/customer/CustomerServiceTest.java
+  checksum: 509edf4fb94900836ec86eb99583d59ccfcebdc4d46f888b2e98d2ada9524048
+- filename: src/test/java/com/thoughtworks/pulpticket/customer/controller/CustomerControllerIntegrationTest.java
+  checksum: 4ef28c52bb1bf8ae846532329e570650aa610d1d0c9258ec3a949cd5696f7e68
+version: ""
+

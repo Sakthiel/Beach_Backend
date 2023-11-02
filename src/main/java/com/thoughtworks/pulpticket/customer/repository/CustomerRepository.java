@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer , Long> {
@@ -13,4 +14,6 @@ public interface CustomerRepository extends JpaRepository<Customer , Long> {
 
     @Query(value = "Select * from customer where phone_number = ?1",nativeQuery=true)
     List<Customer> getCustomerByPhoneNumber(String phoneNumber);
+
+    Optional<Customer> findByUserId(Long userId);
 }
